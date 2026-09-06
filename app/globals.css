@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+}
+
+html,
+body {
+  background-color: #1a080c;
+  color: #f3e5e0;
+}
+
+::selection {
+  background-color: #d8b2a6;
+  color: #511827;
+}
+
+/* Subtle grain texture, no imagery — pure CSS. */
+.texture-grain {
+  position: relative;
+}
+.texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-blush-sheen bg-nude-blush px-8 py-3.5 text-sm font-semibold tracking-[0.14em] text-black-cherry-900 shadow-glow transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-nude-blush/40 bg-transparent px-8 py-3.5 text-sm font-semibold tracking-[0.14em] text-nude-blush transition-colors duration-200 hover:border-nude-blush hover:bg-nude-blush/10 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-nude-blush/80 transition-colors hover:text-nude-blush;
+  }
+  .surface-card {
+    @apply rounded-3xl border border-nude-blush/10 bg-black-cherry-700/60 shadow-card backdrop-blur-sm;
+  }
+}
